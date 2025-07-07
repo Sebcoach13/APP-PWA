@@ -1,9 +1,13 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #e5ddd5; 
+    background-color: #e5ddd5;
+}
+
+/* Masquer le bouton d'installation par défaut */
 #install-button {
     display: none;
 }
+
 /* Styles pour visibilité du défilement */
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
@@ -19,25 +23,27 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-/* Style  pour les bulles de message */
+
+/* Style pour les bulles de message */
 .message-bubble {
-    max-width: 80%; 
-    word-wrap: break-word; 
+    max-width: 80%;
+    word-wrap: break-word;
 }
 .message-mine {
     background-color: #dcf8c6;
-    border-radius: 0.75rem 0.75rem 0 0.75rem; 
+    border-radius: 0.75rem 0.75rem 0 0.75rem;
 }
 .message-other {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     border-radius: 0.75rem 0.75rem 0.75rem 0;
 }
 .message-timestamp {
-    font-size: 0.7rem; 
-    color: #888; 
+    font-size: 0.7rem;
+    color: #888;
     margin-top: 0.25rem;
     align-self: flex-end;
 }
+
 /* Styles pour la bulle d'initiales */
 .sender-initial-bubble {
     width: 40px;
@@ -48,15 +54,14 @@ body {
     justify-content: center;
     font-weight: bold;
     color: white;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .sender-initial-mine {
-    background-color: #075e54; 
-    margin-left: 8px; 
+    background-color: #075e54;
+    margin-left: 8px;
 }
 .sender-initial-other {
-    background-color: #34b7f1; 
-    margin-right: 8px; 
-}
+    background-color: #34b7f1;
+    margin-right: 8px;
 }

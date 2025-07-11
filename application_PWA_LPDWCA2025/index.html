@@ -1,270 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat APP PWA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://placehold.co/192x192/25D366/ffffff?text=WA">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat APP PWA</title>
+  <link rel="icon" href="https://placehold.co/32x32/25D366/ffffff?text=💬" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="manifest" href="manifest.json" />
+
+  
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- CSS perso -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="https://placehold.co/192x192/25D366/ffffff?text=WA" />
 </head>
 <body class="flex flex-col h-screen antialiased">
 
-    <!-- En-tête de l'application -->
-    <header class="bg-[#075e54] p-4 text-white shadow-xl flex items-center justify-between">
-        <div class="flex items-center">
-            <h1 class="text-3xl font-extrabold tracking-wide">Chat app</h1>
-            <div id="status-indicator" class="w-4 h-4 rounded-full bg-red-500 shadow-inner ring-2 ring-white ml-4" title="Hors ligne"></div>
-        </div>
-        <div class="flex items-center space-x-2">
-            <button id="notification-permission-button" class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 ease-in-out shadow-md">
-                Notifications
-            </button>
-            <button id="install-button" class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 ease-in-out shadow-md">
-                Installer
-            </button>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="bg-[#075e54] p-4 text-white shadow-xl flex items-center justify-between">
+    
+    <div class="flex items-center">
+      <h1 class="text-3xl font-extrabold tracking-wide">Chat app</h1>
+      <div id="status-indicator" class="w-4 h-4 rounded-full bg-red-500 shadow-inner ring-2 ring-white ml-4" title="Hors ligne"></div>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button id="notification-permission-button" class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">Notifications</button>
+      <button id="install-button" class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">Installer</button>
+    </div>
+    <button id="reset-button" class="bg-red-100 text-red-700 px-4 py-1 rounded-full text-sm font-medium hover:bg-red-200 transition">Nouveau chat</button>
+  </header>
 
-    <!-- Zone d'affichage des messages -->
-    <main id="messages-container" class="flex-1 overflow-y-auto p-4 space-y-3 flex flex-col custom-scrollbar">
-        <div class="text-center text-gray-500 p-4 mt-auto">
-            <p>Commencez à échanger !</p>
-        </div>
-    </main>
+  <!-- Messages -->
+  <main id="messages-container" class="flex-1 overflow-y-auto p-4 space-y-3 flex flex-col custom-scrollbar">
+    <div class="text-center text-gray-500 p-4 mt-auto">
+      <p>Commencez à échanger !</p>
+    </div>
+  </main>
 
-    <!-- Formulaire d'envoi de messages -->
-    <footer class="bg-gray-100 p-3 shadow-inner">
-        <div class="flex items-center space-x-3 max-w-2xl mx-auto">
-            <input type="text" id="message-input" placeholder="Tapez un message" class="flex-1 p-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#25d366] transition duration-300 text-base">
-            <button id="send-button" class="bg-[#25d366] text-white p-2.5 rounded-full shadow-lg hover:bg-[#1da851] transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </button>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="bg-gray-100 p-3 shadow-inner">
+    <div class="flex items-center space-x-2 max-w-3xl mx-auto">
+      <input type="text" id="pseudo-input" placeholder="Votre prénom" class="w-1/4 p-2 border border-gray-300 rounded-full focus:ring-[#25d366]" />
+      <input type="text" id="message-input" placeholder="Tapez un message" class="flex-1 p-2 border border-gray-300 rounded-full focus:ring-[#25d366]" />
+      <button id="send-button" class="bg-[#25d366] text-white p-2.5 rounded-full hover:bg-[#1da851] transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+    </div>
+  </footer>
 
-    <script>
-        // Références aux éléments du DOM
-        const messageInput = document.getElementById('message-input');
-        const sendButton = document.getElementById('send-button');
-        const messagesContainer = document.getElementById('messages-container');
-        const installButton = document.getElementById('install-button');
-        const notificationPermissionButton = document.getElementById('notification-permission-button');
-        const statusIndicator = document.getElementById('status-indicator');
-        let deferredPrompt;
-
-        /**
-         * @function getSenderInitial
-         * @description Retourne la première lettre majuscule de l'expéditeur.
-         * @param {string} sender - Le nom de l'expéditeur.
-         * @returns {string} La première lettre majuscule.
-         */
-        function getSenderInitial(sender) {
-            return sender.charAt(0).toUpperCase();
-        }
-
-        /**
-         * @function displayMessage
-         * @description Affiche un message dans le conteneur de messages.
-         * @param {string} text - Le texte du message.
-         * @param {string} sender - L'expéditeur du message (ex: 'Moi', 'Autre').
-         * @param {string} timestamp - L'horodatage du message.
-         */
-        function displayMessage(text, sender, timestamp) {
-            const messageWrapper = document.createElement('div');
-            messageWrapper.classList.add('flex', 'items-start', 'w-full', 'mb-2'); // flex et w-full pour l'alignement
-
-            const senderInitial = getSenderInitial(sender);
-            const initialBubble = document.createElement('div');
-            initialBubble.classList.add('sender-initial-bubble', 'text-lg'); // Taille de police pour l'initiale
-            initialBubble.textContent = senderInitial;
-
-
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message-bubble', 'p-3', 'shadow-sm');
-            const senderNameColorClass = (sender === 'Sébastien') ? 'text-gray-500' : 'text-gray-700';
-            const senderNameHtml = `<span class="text-xs font-semibold ${senderNameColorClass} mb-1">${sender}</span>`;
-
-
-            if (sender === 'Sébastien') {
-                messageWrapper.classList.add('justify-end'); 
-                initialBubble.classList.add('sender-initial-mine', 'order-2'); 
-                messageElement.classList.add('message-mine');
-            } else {
-                messageWrapper.classList.add('justify-start'); 
-                initialBubble.classList.add('sender-initial-other', 'order-1'); 
-                messageElement.classList.add('message-other');
-            }
-
-            messageElement.innerHTML = `
-                ${senderNameHtml}
-                <p class="text-sm font-normal">${text}</p>
-                <span class="message-timestamp">${timestamp}</span>
-            `;
-            
-            // Ajoute la bulle initiale et le message dans le wrapper
-            if (sender === 'Sébastien') {
-                messageWrapper.appendChild(messageElement);
-                messageWrapper.appendChild(initialBubble);
-            } else {
-                messageWrapper.appendChild(initialBubble);
-                messageWrapper.appendChild(messageElement);
-            }
-            
-            messagesContainer.appendChild(messageWrapper);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        /**
-         * @function saveMessage
-         * @description Sauvegarde un message dans le LocalStorage.
-         * @param {object} message - L'objet message à sauvegarder.
-         */
-        function saveMessage(message) {
-            const messages = JSON.parse(localStorage.getItem('messages')) || [];
-            messages.push(message);
-            localStorage.setItem('messages', JSON.stringify(messages));
-        }
-
-        /**
-         * @function loadMessages
-         * @description Charge les messages depuis le LocalStorage et les affiche.
-         */
-        function loadMessages() {
-            const messages = JSON.parse(localStorage.getItem('messages')) || [];
-            messagesContainer.innerHTML = ''; 
-            if (messages.length === 0) {
-                 messagesContainer.innerHTML = `
-                    <div class="text-center text-gray-500 p-4 mt-auto">
-                        <p>Commencez à échanger !</p>
-                    </div>
-                `;
-            } else {
-                messages.forEach(msg => displayMessage(msg.text, msg.sender, msg.timestamp));
-            }
-        }
-
-        /**
-         * @function sendMessage
-         * @description Gère l'envoi d'un nouveau message.
-         */
-        function sendMessage() {
-            const text = messageInput.value.trim();
-            if (text) {
-                const now = new Date();
-                const timestamp = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-                const message = { text, sender: 'Sébastien', timestamp, id: Date.now() }; 
-
-                displayMessage(message.text, message.sender, message.timestamp);
-                saveMessage(message);
-                messageInput.value = ''; 
-                setTimeout(() => {
-                    const responseText = `Re: "${text}" - C'est noté !`;
-                    const otherSenderName = 'Alice'; 
-                    const responseTimestamp = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-                    const responseMessage = { text: responseText, sender: otherSenderName, timestamp: responseTimestamp, id: Date.now() };
-                    displayMessage(responseMessage.text, responseMessage.sender, responseMessage.timestamp);
-                    saveMessage(responseMessage);
-                    if (Notification.permission === 'granted') {
-                        navigator.serviceWorker.ready.then(registration => {
-                            registration.showNotification('Nouveau message !', {
-                                body: `${otherSenderName}: ${responseMessage.text}`,
-                                icon: 'https://placehold.co/192x192/25D366/ffffff?text=WA',
-                                tag: 'new-message', 
-                            });
-                        });
-                    }
-                }, 1500); 
-            }
-        }
-
-        // --- Gestion des événements PWA et Notifications ---
-
-        // Écouteur pour l'événement beforeinstallprompt
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installButton.style.display = 'block';
-        });
-
-        // Gestion du clic sur le bouton d'installation
-        installButton.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                installButton.style.display = 'none';
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                console.log(`L'utilisateur a répondu à l'invite d'installation: ${outcome}`);
-                deferredPrompt = null;
-            }
-        });
-
-        // Demander la permission de notification
-        notificationPermissionButton.addEventListener('click', () => {
-            if ('Notification' in window) {
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        console.log('Permission de notification accordée.');
-                        notificationPermissionButton.textContent = 'Notifications Activées';
-                        notificationPermissionButton.disabled = true;
-                    } else {
-                        console.warn('Permission de notification refusée ou bloquée.');
-                    }
-                });
-            } else {
-                console.warn('Votre navigateur ne supporte pas les notifications.');
-                notificationPermissionButton.textContent = 'Notifications non supportées';
-                notificationPermissionButton.disabled = true;
-            }
-        });
-
-
-        // --- Enregistrement du Service Worker ---
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker enregistré avec succès:', registration);
-                        updateOnlineStatus(); 
-                    })
-                    .catch(error => {
-                        console.error('Échec de l\'enregistrement du Service Worker:', error);
-                    });
-            });
-        }
-
-        // --- Gestion du statut de connexion ---
-        function updateOnlineStatus() {
-            if (navigator.onLine) {
-                statusIndicator.classList.remove('bg-red-500');
-                statusIndicator.classList.add('bg-green-500');
-                statusIndicator.title = 'En ligne';
-            } else {
-                statusIndicator.classList.remove('bg-green-500');
-                statusIndicator.classList.add('bg-red-500');
-                statusIndicator.title = 'Hors ligne';
-            }
-        }
-
-        window.addEventListener('online', updateOnlineStatus);
-        window.addEventListener('offline', updateOnlineStatus);
-
-        // --- Initialisation ---
-        window.addEventListener('DOMContentLoaded', () => {
-            loadMessages(); 
-            updateOnlineStatus(); 
-        });
-
-        // Événements d'envoi de message
-        sendButton.addEventListener('click', sendMessage);
-        messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-    </script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

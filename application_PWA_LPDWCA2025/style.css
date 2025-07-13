@@ -2,13 +2,9 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #e5ddd5;
 }
-
-/* Masquer le bouton d'installation par défaut */
 #install-button {
     display: none;
 }
-
-/* Styles pour visibilité du défilement */
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
 }
@@ -23,8 +19,6 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
-/* Style pour les bulles de message */
 .message-bubble {
     max-width: 80%;
     word-wrap: break-word;
@@ -43,8 +37,6 @@ body {
     margin-top: 0.25rem;
     align-self: flex-end;
 }
-
-/* Styles pour la bulle d'initiales */
 .sender-initial-bubble {
     width: 40px;
     height: 40px;

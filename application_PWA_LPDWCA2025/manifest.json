@@ -1,22 +1,51 @@
 {
-  "name": "Chat App",
-  "short_name": "Échange",
-  "description": "Application de messagerie PWA avec IA locale",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#e5ddd5",
-  "theme_color": "#075e54",
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "Chat App",
+    "short_name": "Chat App",
+    "description": "App de discussion.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#e5ddd5",
+    "theme_color": "#25D366",
+    "icons": [
+        {
+            "src": "https://placehold.co/72x72/25D366/ffffff?text=WA",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/96x96/25D366/ffffff?text=WA",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/128x128/25D366/ffffff?text=WA",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/144x144/25D366/ffffff?text=WA",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/152x152/25D366/ffffff?text=WA",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/192x192/25D366/ffffff?text=WA",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/384x384/25D366/ffffff?text=WA",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "https://placehold.co/512x512/25D366/ffffff?text=WA",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
-

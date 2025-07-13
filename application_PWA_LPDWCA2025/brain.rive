@@ -1,41 +1,31 @@
-! version = 2.0
+// brain.rive
 
+// Réponse par défaut
++ *
+- Bonjour !
+- Je n'ai pas compris.
+- Pouvez-vous reformuler ?
+- D'accord.
+
+// Exemple de règles plus spécifiques
 + bonjour
-- Salut ! Tu avances sur le projet PWA ?
+- Salut !
+- Bonjour à toi.
 
-+ coucou
-- Coucou ! Tu bosses encore sur le projet PWA ?
++ comment ca va
+- Ça va bien, merci ! Et toi ?
+- Je suis un bot, je n'ai pas d'émotions, mais tout va bien !
 
-+ comment tu vas
-- Ca va, un peu fatiguee 😅 Et toi ?
-
-+ ca va
-- Oui, nickel. Et toi ?
-
-+ tu fais quoi
-- Je regarde le manifest.json. Tu veux que je te l’envoie ?
-
-+ tu avances
-- Oui ! Je suis sur le service worker. Tu l’as deja teste ?
-
-+ oui
-- Super ! T’en es a quelle etape ?
-
-+ a la fin
-+ je suis a la fin
-+ j ai fini
-- Bravo 🎉 Tu peux faire une pause bien méritée !
-
-
-+ non
-- Pas grave. On peut s’y mettre ensemble si tu veux 💪
++ quel est ton nom
+- Je suis Alice, votre assistante de chat.
 
 + merci
-- Avec plaisir 😊
+- De rien !
+- Avec plaisir.
 
-+ a plus
-- A tres vite ! Bon courage 👋
++ aide
+- Je peux discuter avec vous et simuler des réponses. Essayez de me poser des questions simples.
 
-
-+ *
-- <star>.
++ au revoir
+- Au revoir !
+- À bientôt.

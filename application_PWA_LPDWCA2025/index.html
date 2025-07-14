@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <!-- Tailwind CSS (pour dev uniquement) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- CSS perso -->
@@ -21,18 +21,19 @@
     <!-- En-tête -->
     <header class="bg-[#075e54] p-4 text-white shadow-xl flex items-center justify-between">
         <div class="flex items-center">
-            <img src="icons/icon-512.png" alt="Chat App Icon" class="h-20 w-20 mr-3 rounded-full shadow-lg">
+            <!-- Optimisation Responsive: Taille de l'icône ajustée pour mobile -->
+            <img src="icons/icon-512.png" alt="Chat App Icon" class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 mr-3 rounded-full shadow-lg">
             <div id="status-indicator"
                  class="w-4 h-4 rounded-full bg-red-500 shadow-inner ring-2 ring-white ml-4"
                  title="Hors ligne"></div>
         </div>
         <div class="flex items-center space-x-2">
             <button id="notification-permission-button"
-                    class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition shadow-md">
+                    class="bg-white text-[#075e54] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-gray-200 transition shadow-md">
                 Notifications
             </button>
             <button id="install-button"
-                    class="bg-white text-[#075e54] px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition shadow-md">
+                    class="bg-white text-[#075e54] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-gray-200 transition shadow-md">
                 Installer
             </button>
         </div>
@@ -41,19 +42,21 @@
     <!-- Messages -->
     <main id="messages-container"
           class="flex-1 overflow-y-auto p-4 space-y-3 flex flex-col custom-scrollbar">
-        <!-- Le message initial est maintenant géré uniquement par main.js -->
+        <!-- Le message initial est géré par main.js -->
     </main>
 
     <!-- Formulaire -->
     <footer class="bg-gray-100 p-3 shadow-inner">
-        <div class="flex items-center space-x-3 max-w-2xl mx-auto">
-            <input type="text" id="pseudo-input" placeholder="Votre prénom"
-                   class="p-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#25d366] flex-1" />
+        <!-- Optimisation Responsive: Espacement réduit -->
+        <div class="flex items-center space-x-1 max-w-2xl mx-auto">
+            <!-- Optimisation Responsive: Largeur du pseudo-input ajustée pour mobile -->
+            <input type="text" id="pseudo-input" placeholder="Prénom"
+                   class="flex-none w-20 p-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#25d366] text-sm sm:text-base" />
             <input type="text" id="message-input" placeholder="Tapez un message"
-                   class="p-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#25d366] flex-1" />
+                   class="flex-none w-29 p-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#25d366] text-sm sm:text-base" />
             <button id="send-button"
                     class="bg-[#25d366] text-white p-2.5 rounded-full shadow-lg hover:bg-[#1da851] transition transform hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
                      viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -61,7 +64,7 @@
             </button>
             <button id="reset-button"
                     class="bg-red-500 text-white p-2.5 rounded-full shadow-lg hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004 12v-1m0 0H3m15.356 2A8.001 8.001 0 0120 12v1m0 0h1M4 12a8.001 8.001 0 0015.356 2.002M4 12V7m0 0H3m15.356 2.002A8.001 8.001 0 0120 12v5m0 0h1M4 12v5m0 0H3" />
                 </svg>
             </button>
